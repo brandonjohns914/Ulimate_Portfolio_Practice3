@@ -12,6 +12,7 @@
 		41146B912B7BE78500F23AFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41146B902B7BE78500F23AFA /* Assets.xcassets */; };
 		41146B952B7BE78500F23AFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41146B942B7BE78500F23AFA /* Preview Assets.xcassets */; };
 		41146B9D2B7D666800F23AFA /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41146B9B2B7D666800F23AFA /* Main.xcdatamodeld */; };
+		41B7E8032B7D6C4E000E0477 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7E8022B7D6C4E000E0477 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		41146B922B7BE78500F23AFA /* Workout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Workout.entitlements; sourceTree = "<group>"; };
 		41146B942B7BE78500F23AFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41146B9C2B7D666800F23AFA /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		41B7E8022B7D6C4E000E0477 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		41B7E8042B7D8708000E0477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +57,10 @@
 		41146B8B2B7BE78300F23AFA /* Workout */ = {
 			isa = PBXGroup;
 			children = (
+				41B7E8042B7D8708000E0477 /* Info.plist */,
 				41146B8C2B7BE78300F23AFA /* WorkoutApp.swift */,
 				41146B8E2B7BE78300F23AFA /* ContentView.swift */,
+				41B7E8022B7D6C4E000E0477 /* DataController.swift */,
 				41146B9B2B7D666800F23AFA /* Main.xcdatamodeld */,
 				41146B902B7BE78500F23AFA /* Assets.xcassets */,
 				41146B922B7BE78500F23AFA /* Workout.entitlements */,
@@ -143,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41146B9D2B7D666800F23AFA /* Main.xcdatamodeld in Sources */,
+				41B7E8032B7D6C4E000E0477 /* DataController.swift in Sources */,
 				41146B8F2B7BE78300F23AFA /* ContentView.swift in Sources */,
 				41146B8D2B7BE78300F23AFA /* WorkoutApp.swift in Sources */,
 			);
@@ -278,6 +284,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Workout/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -316,6 +323,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Workout/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
