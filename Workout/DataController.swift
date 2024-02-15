@@ -10,6 +10,13 @@ class DataController: ObservableObject {
     /// Loading/Managing/Syncing local data with iCloud
     let container: NSPersistentCloudKitContainer
     
+    @Published var selectedFilter: Filter? = Filter.all 
+    
+    static var preview: DataController = {
+        let dataController = DataController(inMemory: true)
+        dataController.createSampleData()
+        return dataController
+    }()
     
     // When inMemory = true  data is created on disk
     // When inMemory = false data is stored
@@ -26,7 +33,7 @@ class DataController: ObservableObject {
             }
         }
     }
-    
+
     func createSampleData() {
         let viewContext = container.viewContext
 
@@ -45,26 +52,28 @@ class DataController: ObservableObject {
                 issue.exerciseDate = .now
                 issue.repititions = Int16.random(in: 0...20)
                 issue.targetRepititions = Int16.random(in: 0...20)
-
+                // comes from coredata automatted classes 
                 tag.addToIssues(issue)
             }
         }
 
         try? viewContext.save()
     }
-    
+    ///Only saves Data to persistent storage if values have changed
     func save() {
         if container.viewContext.hasChanges {
             try? container.viewContext.save()
         }
     }
-    
+    /// Deletes Tags/Issues
+    /// Announces to Swift Views that they need to update their views
     func delete(_ object: NSManagedObject) {
         objectWillChange.send()
         container.viewContext.delete(object)
         save()
     }
     
+    /// Batch Delete used with createSampleData to delete all Issues and Tags
     private func delete(_ fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         batchDeleteRequest.resultType = .resultTypeObjectIDs
