@@ -45,6 +45,7 @@ extension Issue {
         issue.title = "Example Issue"
         issue.content = "This is an Example exercise description"
         issue.exerciseName = "This is an example exercise name"
+        issue.priority  = 2
         issue.difficulty = 1
         issue.repititions = 10
         issue.targetRepititions = 10

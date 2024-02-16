@@ -14,6 +14,7 @@
 		41146B9D2B7D666800F23AFA /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41146B9B2B7D666800F23AFA /* Main.xcdatamodeld */; };
 		4126F5FB2B7ED08200EB7C95 /* Issue-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4126F5FA2B7ED08200EB7C95 /* Issue-CoreDataHelpers.swift */; };
 		4126F5FD2B7ED36700EB7C95 /* Tag-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4126F5FC2B7ED36700EB7C95 /* Tag-CoreDataHelpers.swift */; };
+		4126F6002B7FE26F00EB7C95 /* IssueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4126F5FF2B7FE26F00EB7C95 /* IssueRow.swift */; };
 		41B7E8032B7D6C4E000E0477 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7E8022B7D6C4E000E0477 /* DataController.swift */; };
 		41B7E8072B7D99FA000E0477 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7E8062B7D99FA000E0477 /* SidebarView.swift */; };
 		41B7E8092B7D9A10000E0477 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7E8082B7D9A10000E0477 /* DetailView.swift */; };
@@ -30,6 +31,7 @@
 		4126F5FA2B7ED08200EB7C95 /* Issue-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		4126F5FC2B7ED36700EB7C95 /* Tag-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		4126F5FE2B7ED7CD00EB7C95 /* Workout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Workout.entitlements; sourceTree = "<group>"; };
+		4126F5FF2B7FE26F00EB7C95 /* IssueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueRow.swift; sourceTree = "<group>"; };
 		41B7E8022B7D6C4E000E0477 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		41B7E8042B7D8708000E0477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41B7E8062B7D99FA000E0477 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -70,14 +72,12 @@
 				41146B8E2B7BE78300F23AFA /* ContentView.swift */,
 				41B7E8022B7D6C4E000E0477 /* DataController.swift */,
 				41B7E8082B7D9A10000E0477 /* DetailView.swift */,
-				4126F5FA2B7ED08200EB7C95 /* Issue-CoreDataHelpers.swift */,
-				4126F5FC2B7ED36700EB7C95 /* Tag-CoreDataHelpers.swift */,
+				41B7E80A2B7D9BA2000E0477 /* Filter.swift */,
+				4126F5FF2B7FE26F00EB7C95 /* IssueRow.swift */,
 				41B7E8062B7D99FA000E0477 /* SidebarView.swift */,
 				41146B8C2B7BE78300F23AFA /* WorkoutApp.swift */,
-				41B7E80A2B7D9BA2000E0477 /* Filter.swift */,
-				41146B9B2B7D666800F23AFA /* Main.xcdatamodeld */,
+				4126F6012B7FE28400EB7C95 /* Extensions */,
 				41146B902B7BE78500F23AFA /* Assets.xcassets */,
-				4126F5FE2B7ED7CD00EB7C95 /* Workout.entitlements */,
 				41B7E8052B7D8790000E0477 /* Configurations */,
 				41146B932B7BE78500F23AFA /* Preview Content */,
 			);
@@ -92,9 +92,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		4126F6012B7FE28400EB7C95 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4126F5FA2B7ED08200EB7C95 /* Issue-CoreDataHelpers.swift */,
+				4126F5FC2B7ED36700EB7C95 /* Tag-CoreDataHelpers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		41B7E8052B7D8790000E0477 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				41146B9B2B7D666800F23AFA /* Main.xcdatamodeld */,
+				4126F5FE2B7ED7CD00EB7C95 /* Workout.entitlements */,
 				41B7E8042B7D8708000E0477 /* Info.plist */,
 			);
 			path = Configurations;
@@ -178,6 +189,7 @@
 				41B7E8032B7D6C4E000E0477 /* DataController.swift in Sources */,
 				41B7E8072B7D99FA000E0477 /* SidebarView.swift in Sources */,
 				41146B8F2B7BE78300F23AFA /* ContentView.swift in Sources */,
+				4126F6002B7FE26F00EB7C95 /* IssueRow.swift in Sources */,
 				41146B8D2B7BE78300F23AFA /* WorkoutApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Workout/Workout.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Workout/Configurations/Workout.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Workout/Preview Content\"";
@@ -343,7 +355,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Workout/Workout.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Workout/Configurations/Workout.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Workout/Preview Content\"";
