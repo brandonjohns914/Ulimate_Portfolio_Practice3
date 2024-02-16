@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+    @EnvironmentObject var dataController: DataController
+    
+    var issues: [Issue] {
+        let filter = dataController.selectedFilter ?? .all
+        var allIssues: [Issue]
+
+        if let tag = filter.tag {
+            allIssues = tag.issues?.allObjects as? [Issue] ?? []
+        } else {
+            let request = Issue.fetchRequest()
+            // can change based on different parameters
+            request.predicate = NSPredicate(format: "modificationDate > %@", filter.minModificationDate as NSDate)
+            allIssues = (try? dataController.container.viewContext.fetch(request)) ?? []
         }
-        .padding()
+
+        return allIssues.sorted()
+    }
+    
+    
+    var body: some View {
+        List {
+            ForEach(issues) { issue in
+                Text(issue.issueTitle)
+            }
+        }
+        .navigationTitle("Issues")
     }
 }
 
