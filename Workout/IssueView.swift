@@ -21,11 +21,23 @@ struct IssueView: View {
                 }
 
                 Picker("Priority", selection: $issue.priority) {
-                    Text("Low")
-                    Text("Medium")
-                    Text("High")
+                    Text("Low").tag(Int16(0))
+                    Text("Medium").tag(Int16(1))
+                    Text("High").tag(Int16(2))
                 }
             }
+            
+            //This description textfield
+            Section {
+                VStack(alignment: .leading) {
+                    Text("Basic Information")
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+
+                    TextField("Description", text: $issue.issueContent, prompt: Text("Enter the issue description here"), axis: .vertical)
+                }
+            }
+
         }
     }
 }
