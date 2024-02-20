@@ -22,9 +22,10 @@ struct IssueRow: View {
                         .font(.headline)
                         .lineLimit(1)
 
-                    Text("No tags")
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
+                    Text(issue.issueTagsList)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .animation(nil, value: issue.issueTagsList)
                 }
 
                 Spacer()

@@ -8,10 +8,31 @@
 import Foundation
 
 extension Issue {
-    
+    //Selected Tags 
     var issueTags: [Tag] {
         let result = tags?.allObjects as? [Tag] ?? []
         return result.sorted()
+    }
+    
+    
+    var issueTagsList: String {
+        guard let tags else { return "No Tags" }
+        
+        // count== 0 because its an NSSet
+        if tags.count == 0 {
+            return "No Tags"
+        } else {
+            // return the selected tags by name 
+            return issueTags.map(\.tagName).formatted()
+        }
+    }
+
+    var issueStatus: String {
+        if completed {
+            return "Closed"
+        } else {
+            return "Open"
+        }
     }
     
     var issueTitle: String {
