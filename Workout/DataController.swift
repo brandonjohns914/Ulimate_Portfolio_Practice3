@@ -7,10 +7,11 @@
 
 import CoreData
 class DataController: ObservableObject {
-    /// Loading/Managing/Syncing local data with iCloud
+    // Loading/Managing/Syncing local data with iCloud
     let container: NSPersistentCloudKitContainer
     
     @Published var selectedFilter: Filter? = Filter.all 
+    @Published var selectedIssue: Issue? 
     
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
@@ -24,7 +25,6 @@ class DataController: ObservableObject {
         container = NSPersistentCloudKitContainer(name: "Main")
         
         if inMemory {
-            // change this to save files to the phone
             container.persistentStoreDescriptions.first?.url = URL(filePath: "/dev/null")
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
