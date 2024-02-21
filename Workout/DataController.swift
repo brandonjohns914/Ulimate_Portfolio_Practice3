@@ -13,6 +13,10 @@ class DataController: ObservableObject {
     @Published var selectedFilter: Filter? = Filter.all 
     @Published var selectedIssue: Issue? 
     
+    
+    private var saveTask: Task<Void, Error>?
+    
+    
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
         dataController.createSampleData()
@@ -76,6 +80,21 @@ class DataController: ObservableObject {
             try? container.viewContext.save()
         }
     }
+    
+    func queueSave() {
+        saveTask?.cancel()
+
+        saveTask = Task { @MainActor in
+            try await Task.sleep(for: .seconds(3))
+            save()
+        }
+    }
+
+    
+    
+    
+    
+    
     /// Deletes Tags/Issues
     /// Announces to Swift Views that they need to update their views
     func delete(_ object: NSManagedObject) {
