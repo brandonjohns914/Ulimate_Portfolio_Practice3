@@ -41,6 +41,7 @@ struct ContentView: View {
                     Picker("Sort By", selection: $dataController.sortType) {
                         Text("Date Created").tag(SortType.dateCreated)
                         Text("Date Modified").tag(SortType.dateModified)
+                        Text("Title").tag(SortType.titleOrder)
                     }
 
                     Divider()
@@ -70,6 +71,10 @@ struct ContentView: View {
                 // this does not work for macOS 
                     .symbolVariant(dataController.filterEnabled ? .fill : .none)
 
+            }
+            
+            Button(action: dataController.newIssue) {
+                Label("New issue", systemImage: "square.and.pencil")
             }
         }
         

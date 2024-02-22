@@ -12,6 +12,7 @@ import CoreData
 enum SortType: String {
     case dateCreated = "creationDate"
     case dateModified = "modificationDate"
+    case titleOrder = "title"
 }
 
 enum Status {
@@ -33,6 +34,8 @@ class DataController: ObservableObject {
     @Published var filterStatus = Status.all
     @Published var sortType = SortType.dateCreated
     @Published var sortNewestFirst = true
+    
+    @Published var sortByTitle = true
     
     private var saveTask: Task<Void, Error>?
     
@@ -216,13 +219,23 @@ class DataController: ObservableObject {
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         
         //what to sort by 
-        request.sortDescriptors = [NSSortDescriptor(key: sortType.rawValue, ascending: sortNewestFirst)]
+        request.sortDescriptors = [NSSortDescriptor(key: sortType.rawValue, ascending: sortNewestFirst), NSSortDescriptor(key: sortType.rawValue, ascending: sortByTitle)]
 
         let allIssues = (try? container.viewContext.fetch(request)) ?? []
         return allIssues
     }
     
-    
+    func newIssue() {
+        let issue = Issue(context: container.viewContext)
+        issue.title = "New Issue"
+        issue.creationDate = .now
+        issue.priority = 1 
+        
+        if let tag = selectedFilter?.tag {
+            issue.addToTags(tag)
+        }
+        save()
+    }
     
     
     
