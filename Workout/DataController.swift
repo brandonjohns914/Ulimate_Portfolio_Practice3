@@ -114,6 +114,9 @@ class DataController: ObservableObject {
     }
     ///Only saves Data to persistent storage if values have changed
     func save() {
+        saveTask?.cancel()
+
+        
         if container.viewContext.hasChanges {
             try? container.viewContext.save()
         }
