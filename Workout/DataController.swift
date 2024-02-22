@@ -88,24 +88,19 @@ class DataController: ObservableObject {
     func createSampleData() {
         let viewContext = container.viewContext
 
-        for indexTag in 1...5 {
+        for tagCounter in 1...5 {
             let tag = Tag(context: viewContext)
             tag.id = UUID()
-            tag.name = "Tag \(indexTag)"
-
-            for indexIssue in 1...10 {
+            tag.name = "Tag \(tagCounter)"
+            
+            for issueCounter in 1...10 {
                 let issue = Issue(context: viewContext)
-                issue.title = "Exercise \(indexTag)-\(indexIssue)"
-                issue.exerciseName = "Exercise Name"
-                issue.content = "Exercise Description goes here"
+                issue.title = "Issue \(tagCounter)-\(issueCounter)"
+                issue.content = "Description goes here"
                 issue.creationDate = .now
                 issue.completed = Bool.random()
                 issue.priority = Int16.random(in: 0...2)
-                issue.difficulty = Int16.random(in: 0...10)
-                issue.exerciseDate = .now
-                issue.repititions = Int16.random(in: 0...20)
-                issue.targetRepititions = Int16.random(in: 0...20)
-                // comes from coredata automatted classes 
+                // coredata automated class
                 tag.addToIssues(issue)
             }
         }

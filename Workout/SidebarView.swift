@@ -43,8 +43,8 @@ struct SidebarView: View {
                 ForEach(tagFilters) { filter in
                     NavigationLink(value: filter) {
                         Label(filter.name, systemImage: filter.icon)
-                            .badge(filter.tag?.tagActiveIssues.count ?? 0)
-                        // pressing is how to change the name 
+                            .badge(filter.activeIssuesCount)
+                        // pressing is how to change the name
                             .contextMenu {
                                 Button {
                                     rename(filter)
@@ -59,6 +59,10 @@ struct SidebarView: View {
                                 }
 
                             }
+                            .accessibilityElement()
+                            .accessibilityLabel(filter.name)
+                                // automatic grammar agreement 
+                            .accessibilityHint("^[\(filter.activeIssuesCount) issue](inflect: true)")
                     }
                 }
                 .onDelete(perform: delete)

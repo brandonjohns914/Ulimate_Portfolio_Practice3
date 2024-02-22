@@ -31,7 +31,8 @@ struct IssueRow: View {
                 Spacer()
 
                 VStack(alignment: .trailing) {
-                    Text(issue.issueCreationDate.formatted(date: .numeric, time: .omitted))
+                    Text(issue.issueCreationDate.formatted(date: .abbreviated, time: .omitted))
+                        .accessibilityLabel(issue.issueCreationDate.formatted(date: .abbreviated, time: .omitted))
                         .font(.subheadline)
 
                     if issue.completed {
@@ -42,6 +43,7 @@ struct IssueRow: View {
                 .foregroundStyle(.secondary)
             }
         }
+        .accessibilityHint(issue.priority == 2 ? "High priority" : "")
     }
 }
 

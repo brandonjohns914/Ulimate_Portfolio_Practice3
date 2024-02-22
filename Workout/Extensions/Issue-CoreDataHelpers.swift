@@ -61,19 +61,14 @@ extension Issue {
     static var example: Issue {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext
+
         
         let issue = Issue(context: viewContext)
         issue.title = "Example Issue"
-        issue.content = "This is an Example exercise description"
-        issue.exerciseName = "This is an example exercise name"
-        issue.priority  = 2
-        issue.difficulty = 1
-        issue.repititions = 10
-        issue.targetRepititions = 10
-        issue.totalWeight = 50
-        issue.weight = 25
-        return issue
-    }
+        issue.content = "This is an example issue."
+        issue.priority = 2
+        issue.creationDate = .now
+        return issue    }
     
     
 }
