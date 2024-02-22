@@ -17,6 +17,9 @@
 		4126F6002B7FE26F00EB7C95 /* IssueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4126F5FF2B7FE26F00EB7C95 /* IssueRow.swift */; };
 		4126F6032B801F7000EB7C95 /* IssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4126F6022B801F7000EB7C95 /* IssueView.swift */; };
 		4126F6052B801F7900EB7C95 /* NoIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4126F6042B801F7900EB7C95 /* NoIssueView.swift */; };
+		416F4C5A2B87D2CC0016B833 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 416F4C582B87D2CC0016B833 /* Colors.xcassets */; };
+		416F4C5B2B87D2CC0016B833 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 416F4C592B87D2CC0016B833 /* Awards.json */; };
+		416F4C5D2B87D4040016B833 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F4C5C2B87D4040016B833 /* Bundle-Decodable.swift */; };
 		41B7E8032B7D6C4E000E0477 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7E8022B7D6C4E000E0477 /* DataController.swift */; };
 		41B7E8072B7D99FA000E0477 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7E8062B7D99FA000E0477 /* SidebarView.swift */; };
 		41B7E8092B7D9A10000E0477 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7E8082B7D9A10000E0477 /* DetailView.swift */; };
@@ -36,6 +39,9 @@
 		4126F5FF2B7FE26F00EB7C95 /* IssueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueRow.swift; sourceTree = "<group>"; };
 		4126F6022B801F7000EB7C95 /* IssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueView.swift; sourceTree = "<group>"; };
 		4126F6042B801F7900EB7C95 /* NoIssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoIssueView.swift; sourceTree = "<group>"; };
+		416F4C582B87D2CC0016B833 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		416F4C592B87D2CC0016B833 /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
+		416F4C5C2B87D4040016B833 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		41B7E8022B7D6C4E000E0477 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		41B7E8042B7D8708000E0477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41B7E8062B7D99FA000E0477 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -84,6 +90,8 @@
 				41146B8C2B7BE78300F23AFA /* WorkoutApp.swift */,
 				4126F6012B7FE28400EB7C95 /* Extensions */,
 				41146B902B7BE78500F23AFA /* Assets.xcassets */,
+				416F4C592B87D2CC0016B833 /* Awards.json */,
+				416F4C582B87D2CC0016B833 /* Colors.xcassets */,
 				41B7E8052B7D8790000E0477 /* Configurations */,
 				41146B932B7BE78500F23AFA /* Preview Content */,
 			);
@@ -103,6 +111,7 @@
 			children = (
 				4126F5FA2B7ED08200EB7C95 /* Issue-CoreDataHelpers.swift */,
 				4126F5FC2B7ED36700EB7C95 /* Tag-CoreDataHelpers.swift */,
+				416F4C5C2B87D4040016B833 /* Bundle-Decodable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,6 +184,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416F4C5A2B87D2CC0016B833 /* Colors.xcassets in Resources */,
+				416F4C5B2B87D2CC0016B833 /* Awards.json in Resources */,
 				41146B952B7BE78500F23AFA /* Preview Assets.xcassets in Resources */,
 				41146B912B7BE78500F23AFA /* Assets.xcassets in Resources */,
 			);
@@ -191,6 +202,7 @@
 				4126F5FD2B7ED36700EB7C95 /* Tag-CoreDataHelpers.swift in Sources */,
 				41146B9D2B7D666800F23AFA /* Main.xcdatamodeld in Sources */,
 				4126F5FB2B7ED08200EB7C95 /* Issue-CoreDataHelpers.swift in Sources */,
+				416F4C5D2B87D4040016B833 /* Bundle-Decodable.swift in Sources */,
 				41B7E8092B7D9A10000E0477 /* DetailView.swift in Sources */,
 				41B7E8032B7D6C4E000E0477 /* DataController.swift in Sources */,
 				41B7E8072B7D99FA000E0477 /* SidebarView.swift in Sources */,
