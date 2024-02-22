@@ -235,8 +235,17 @@ class DataController: ObservableObject {
             issue.addToTags(tag)
         }
         save()
+        
+        selectedIssue = issue
     }
     
+    func newTag() {
+        let tag = Tag(context: container.viewContext)
+        tag.id = UUID()
+        tag.name = "New Tag"
+        save()
+    }
+
     
     
     
