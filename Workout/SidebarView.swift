@@ -19,6 +19,7 @@ struct SidebarView: View {
     @State private var renamingTag = false
     @State private var tagName = ""
     
+    @State private var showingAwards = false
     
     // this can be converted if there are multiple tags or if each body part has its own entity like tag
     var tagFilters: [Filter] {
@@ -62,6 +63,11 @@ struct SidebarView: View {
                 Label("Add Tag", systemImage: "plus")
             }
             
+            Button {
+                showingAwards.toggle()
+            } label: {
+                Label("Show Awards", systemImage: "rosette")
+            }
             
         #if DEBUG
             Button {
@@ -78,6 +84,7 @@ struct SidebarView: View {
             Button("Cancel", role: .cancel) { }
             TextField("New name", text: $tagName)
         }
+        .sheet(isPresented: $showingAwards, content: AwardsView.init)
     }
     
     func delete(_ offsets: IndexSet) {
