@@ -15,7 +15,7 @@ struct IssueView: View {
         Form {
             Section {
                 VStack(alignment: .leading) {
-                    TextField("Title", text: $issue.issueTitle, prompt: Text("Enter the issue title here"))
+                    TextField("Title", text: $issue.issueTitle, prompt: Text("Enter the Issue Title here"))
                         .font(.title)
 
                     Text("**Modified:** \(issue.issueModificationDate.formatted(date: .long, time: .shortened))")
