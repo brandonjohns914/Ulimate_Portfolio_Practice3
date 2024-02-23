@@ -19,7 +19,7 @@ struct SidebarView: View {
     @State private var renamingTag = false
     @State private var tagName = ""
     
-    @State private var showingAwards = false
+   
     
     // this can be converted if there are multiple tags or if each body part has its own entity like tag
     var tagFilters: [Filter] {
@@ -32,69 +32,25 @@ struct SidebarView: View {
     var body: some View {
         List(selection: $dataController.selectedFilter) {
             Section("Smart Filters") {
-                ForEach(smartFilters) { filter in
-                    NavigationLink(value: filter) {
-                        Label(LocalizedStringKey(filter.name), systemImage: filter.icon)
-                    }
-                }
+                ForEach(smartFilters, content: SmartFilterRow.init)
             }
             
             Section("Tags") {
                 ForEach(tagFilters) { filter in
-                    NavigationLink(value: filter) {
-                        Label(filter.name, systemImage: filter.icon)
-                            .badge(filter.activeIssuesCount)
-                        // pressing is how to change the name
-                            .contextMenu {
-                                Button {
-                                    rename(filter)
-                                } label: {
-                                    Label("Rename", systemImage: "pencil")
-                                }
-                                
-                                Button(role: .destructive) {
-                                    delete(filter)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-
-                            }
-                            .accessibilityElement()
-                            .accessibilityLabel(filter.name)
-                            .accessibilityHint("\(filter.activeIssuesCount) Issues")
-                    }
+                    // rename/delete are the methods
+                    UserFilterRow(filter: filter, rename: rename, delete: delete)
                 }
                 .onDelete(perform: delete)
             }
             
         }
-        .toolbar {
-            Button(action: dataController.newTag) {
-                Label("Add Tag", systemImage: "plus")
-            }
-            
-            Button {
-                showingAwards.toggle()
-            } label: {
-                Label("Show Awards", systemImage: "rosette")
-            }
-            
-        #if DEBUG
-            Button {
-                dataController.deleteAll()
-                dataController.createSampleData()
-            } label: {
-                Label("ADD SAMPLES", systemImage: "flame")
-            }
-        #endif
-            
-        }
+        .toolbar(content: SidebarViewToolbar.init)
         .alert("Rename Tag", isPresented: $renamingTag) {
             Button("OK", action: completeRename)
             Button("Cancel", role: .cancel) { }
             TextField("New Name", text: $tagName)
         }
-        .sheet(isPresented: $showingAwards, content: AwardsView.init)
+        
         .navigationTitle("Filters")
     }
     

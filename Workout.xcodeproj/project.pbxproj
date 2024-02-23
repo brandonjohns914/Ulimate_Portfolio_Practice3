@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4101D9032B89496A00A21B91 /* SidebarViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101D9022B89496A00A21B91 /* SidebarViewToolbar.swift */; };
+		4101D9052B894CA400A21B91 /* IssueViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101D9042B894CA400A21B91 /* IssueViewToolbar.swift */; };
+		4101D9072B894D8B00A21B91 /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101D9062B894D8B00A21B91 /* ContentViewToolbar.swift */; };
+		4101D9092B89505D00A21B91 /* TagsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101D9082B89505D00A21B91 /* TagsMenuView.swift */; };
+		4101D90B2B8951BF00A21B91 /* SmartFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101D90A2B8951BF00A21B91 /* SmartFilterRow.swift */; };
+		4101D90D2B89529000A21B91 /* UserFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101D90C2B89529000A21B91 /* UserFilterRow.swift */; };
 		41146B8D2B7BE78300F23AFA /* WorkoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41146B8C2B7BE78300F23AFA /* WorkoutApp.swift */; };
 		41146B8F2B7BE78300F23AFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41146B8E2B7BE78300F23AFA /* ContentView.swift */; };
 		41146B912B7BE78500F23AFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41146B902B7BE78500F23AFA /* Assets.xcassets */; };
@@ -31,6 +37,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4101D9022B89496A00A21B91 /* SidebarViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewToolbar.swift; sourceTree = "<group>"; };
+		4101D9042B894CA400A21B91 /* IssueViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueViewToolbar.swift; sourceTree = "<group>"; };
+		4101D9062B894D8B00A21B91 /* ContentViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewToolbar.swift; sourceTree = "<group>"; };
+		4101D9082B89505D00A21B91 /* TagsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsMenuView.swift; sourceTree = "<group>"; };
+		4101D90A2B8951BF00A21B91 /* SmartFilterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartFilterRow.swift; sourceTree = "<group>"; };
+		4101D90C2B89529000A21B91 /* UserFilterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilterRow.swift; sourceTree = "<group>"; };
 		41146B892B7BE78300F23AFA /* Workout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41146B8C2B7BE78300F23AFA /* WorkoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutApp.swift; sourceTree = "<group>"; };
 		41146B8E2B7BE78300F23AFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,13 +102,19 @@
 				416F4C5E2B87E5930016B833 /* Award.swift */,
 				416F4C602B87E8320016B833 /* AwardsView.swift */,
 				41146B8E2B7BE78300F23AFA /* ContentView.swift */,
+				4101D9062B894D8B00A21B91 /* ContentViewToolbar.swift */,
 				41B7E8022B7D6C4E000E0477 /* DataController.swift */,
 				41B7E8082B7D9A10000E0477 /* DetailView.swift */,
 				41B7E80A2B7D9BA2000E0477 /* Filter.swift */,
 				4126F5FF2B7FE26F00EB7C95 /* IssueRow.swift */,
 				4126F6022B801F7000EB7C95 /* IssueView.swift */,
+				4101D9042B894CA400A21B91 /* IssueViewToolbar.swift */,
 				4126F6042B801F7900EB7C95 /* NoIssueView.swift */,
+				4101D90A2B8951BF00A21B91 /* SmartFilterRow.swift */,
 				41B7E8062B7D99FA000E0477 /* SidebarView.swift */,
+				4101D9022B89496A00A21B91 /* SidebarViewToolbar.swift */,
+				4101D90C2B89529000A21B91 /* UserFilterRow.swift */,
+				4101D9082B89505D00A21B91 /* TagsMenuView.swift */,
 				41146B8C2B7BE78300F23AFA /* WorkoutApp.swift */,
 				416F4C622B8812860016B833 /* Localization */,
 				4126F6012B7FE28400EB7C95 /* Extensions */,
@@ -221,7 +239,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				41B7E80B2B7D9BA2000E0477 /* Filter.swift in Sources */,
+				4101D9092B89505D00A21B91 /* TagsMenuView.swift in Sources */,
 				416F4C5F2B87E5930016B833 /* Award.swift in Sources */,
+				4101D9052B894CA400A21B91 /* IssueViewToolbar.swift in Sources */,
+				4101D90B2B8951BF00A21B91 /* SmartFilterRow.swift in Sources */,
 				416F4C612B87E8320016B833 /* AwardsView.swift in Sources */,
 				4126F5FD2B7ED36700EB7C95 /* Tag-CoreDataHelpers.swift in Sources */,
 				41146B9D2B7D666800F23AFA /* Main.xcdatamodeld in Sources */,
@@ -229,9 +250,12 @@
 				416F4C5D2B87D4040016B833 /* Bundle-Decodable.swift in Sources */,
 				41B7E8092B7D9A10000E0477 /* DetailView.swift in Sources */,
 				41B7E8032B7D6C4E000E0477 /* DataController.swift in Sources */,
+				4101D9072B894D8B00A21B91 /* ContentViewToolbar.swift in Sources */,
 				41B7E8072B7D99FA000E0477 /* SidebarView.swift in Sources */,
 				41146B8F2B7BE78300F23AFA /* ContentView.swift in Sources */,
+				4101D9032B89496A00A21B91 /* SidebarViewToolbar.swift in Sources */,
 				4126F6032B801F7000EB7C95 /* IssueView.swift in Sources */,
+				4101D90D2B89529000A21B91 /* UserFilterRow.swift in Sources */,
 				4126F6052B801F7900EB7C95 /* NoIssueView.swift in Sources */,
 				4126F6002B7FE26F00EB7C95 /* IssueRow.swift in Sources */,
 				41146B8D2B7BE78300F23AFA /* WorkoutApp.swift in Sources */,
