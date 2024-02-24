@@ -11,12 +11,10 @@ struct AwardsView: View {
     @EnvironmentObject var dataController: DataController
     @State private var selectedAward = Award.example
     @State private var showingAwardDetails = false
-
     
     var columns: [GridItem] {
         [GridItem(.adaptive(minimum: 100, maximum: 100))]
     }
-
     
     var body: some View {
         NavigationStack {
@@ -44,7 +42,6 @@ struct AwardsView: View {
             } message: {
                 Text(selectedAward.description)
             }
-
         }
     }
     
@@ -62,7 +59,6 @@ struct AwardsView: View {
     func label(for award: Award) -> LocalizedStringKey {
         dataController.hasEarned(award: award) ? "Unlocked: \(award.name)" : "Locked"
     }
-
 }
 
 #Preview {

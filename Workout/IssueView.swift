@@ -17,13 +17,14 @@ struct IssueView: View {
                 VStack(alignment: .leading) {
                     TextField("Title", text: $issue.issueTitle, prompt: Text("Enter the Issue Title here"))
                         .font(.title)
-
+                    
                     Text("**Modified:** \(issue.issueModificationDate.formatted(date: .long, time: .shortened))")
                         .foregroundStyle(.secondary)
                     
                     Text("**Status:** \(issue.issueStatus)")
                         .foregroundStyle(.secondary)
                 }
+                
                 Picker("Priority", selection: $issue.priority) {
                     Text("Low").tag(Int16(0))
                     Text("Medium").tag(Int16(1))
@@ -40,10 +41,14 @@ struct IssueView: View {
                         .font(.title2)
                         .foregroundStyle(.secondary)
                     // axis: vertial == type space goes vertical down the screen 
-                    TextField("Description", text: $issue.issueContent, prompt: Text("Enter the issue description here"), axis: .vertical)
+                    TextField(
+                        "Description",
+                        text: $issue.issueContent,
+                        prompt: Text("Enter the issue description here"),
+                        axis: .vertical
+                    )
                 }
             }
-
         }
         .disabled(issue.isDeleted)
         .onReceive(issue.objectWillChange) { _ in

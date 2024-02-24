@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserFilterRow: View {
     var filter: Filter
-    // takes in a filter and returns nothing 
+    // takes in a filter and returns nothing
     var rename: (Filter) -> Void
     var delete: (Filter) -> Void
     
@@ -30,7 +30,7 @@ struct UserFilterRow: View {
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
-
+                    
                 }
                 .accessibilityElement()
                 .accessibilityLabel(filter.name)
@@ -40,5 +40,5 @@ struct UserFilterRow: View {
 }
 
 #Preview {
-    UserFilterRow(filter: .all, rename:  {_ in}, delete: {_ in})
+    UserFilterRow(filter: .all, rename:  { _ in }, delete: { _ in })
 }

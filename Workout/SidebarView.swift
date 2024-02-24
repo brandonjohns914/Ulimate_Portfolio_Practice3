@@ -8,18 +8,12 @@
 import SwiftUI
 
 struct SidebarView: View {
-    
     @EnvironmentObject var dataController: DataController
-    
     let smartFilters: [Filter] = [.all, .recent]
-    
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var tags: FetchedResults<Tag>
-    
     @State private var tagToRename: Tag?
     @State private var renamingTag = false
     @State private var tagName = ""
-    
-   
     
     // this can be converted if there are multiple tags or if each body part has its own entity like tag
     var tagFilters: [Filter] {
@@ -28,9 +22,9 @@ struct SidebarView: View {
         }
     }
     
-    
     var body: some View {
         List(selection: $dataController.selectedFilter) {
+            
             Section("Smart Filters") {
                 ForEach(smartFilters, content: SmartFilterRow.init)
             }
@@ -42,7 +36,6 @@ struct SidebarView: View {
                 }
                 .onDelete(perform: delete)
             }
-            
         }
         .toolbar(content: SidebarViewToolbar.init)
         .alert("Rename Tag", isPresented: $renamingTag) {
@@ -50,7 +43,6 @@ struct SidebarView: View {
             Button("Cancel", role: .cancel) { }
             TextField("New Name", text: $tagName)
         }
-        
         .navigationTitle("Filters")
     }
     

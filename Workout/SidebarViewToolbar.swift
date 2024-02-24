@@ -22,14 +22,15 @@ struct SidebarViewToolbar: View {
         }
         .sheet(isPresented: $showingAwards, content: AwardsView.init)
         
-    #if DEBUG
-            Button {
+#if DEBUG
+        Button {
             dataController.deleteAll()
             dataController.createSampleData()
         } label: {
             Label("ADD SAMPLES", systemImage: "flame")
         }
-    #endif
+#endif
+        
     }
 }
 

@@ -21,13 +21,11 @@ struct TagsMenuView: View {
                     Label(tag.tagName, systemImage: "checkmark")
                 }
             }
-
             // show unselected tags
             let otherTags = dataController.missingTags(from: issue)
-
+            
             if otherTags.isEmpty == false {
                 Divider()
-
                 Section("Add Tags") {
                     ForEach(otherTags) { tag in
                         Button(tag.tagName) {

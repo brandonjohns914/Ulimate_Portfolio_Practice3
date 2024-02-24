@@ -18,15 +18,15 @@ struct ContentView: View {
             .onDelete(perform: delete)
         }
         .navigationTitle("Issues")
-        // potentially need to change depending on types 
-        // maybe add tag predicate 
+        // potentially need to change depending on types
+        // maybe add tag predicate
         .searchable(
             text: $dataController.filterText,
             tokens: $dataController.filterTokens,
             suggestedTokens: .constant(dataController.suggestedFilterTokens),
             prompt: "Select a Tag or Write in the Issue Title"
-        ) { tag in
-                Text(tag.tagName)
+        ){ tag in
+            Text(tag.tagName)
         }
         .toolbar (content: ContentViewToolbar.init)
     }
