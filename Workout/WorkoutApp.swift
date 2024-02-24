@@ -11,6 +11,7 @@ import SwiftUI
 struct WorkoutApp: App {
     @StateObject var dataController = DataController()
     @Environment(\.scenePhase) var scenePhase
+    
     var body: some Scene {
         WindowGroup {
             NavigationSplitView {

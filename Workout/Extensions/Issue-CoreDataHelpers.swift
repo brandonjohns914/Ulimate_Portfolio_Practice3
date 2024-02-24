@@ -13,6 +13,7 @@ extension Issue {
         let result = tags?.allObjects as? [Tag] ?? []
         return result.sorted()
     }
+    
     var issueTagsList: String {
         guard let tags else { return "No Tags" }
         // count== 0 because its an NSSet
@@ -23,6 +24,7 @@ extension Issue {
             return issueTags.map(\.tagName).formatted()
         }
     }
+    
     var issueStatus: String {
         if completed {
             return "Closed"
@@ -30,27 +32,34 @@ extension Issue {
             return "Open"
         }
     }
+    
     var issueTitle: String {
         get { title ?? "" }
         set { title = newValue }
     }
+    
     var issueContent: String {
         get { content ?? "" }
         set { content = newValue }
     }
+    
     var issueExerciseName: String {
         get { exerciseName ?? "" }
         set { exerciseName = newValue }
     }
+    
     var issueCreationDate: Date {
         creationDate ?? .now
     }
+    
     var issueModificationDate: Date {
         modificationDate ?? .now
     }
+    
     var issueFormattedCreationDate: String {
         issueCreationDate.formatted(date: .numeric, time: .omitted)
     }
+    
     static var example: Issue {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext

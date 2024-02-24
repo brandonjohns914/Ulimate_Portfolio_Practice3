@@ -13,13 +13,16 @@ extension Tag {
         let result = issues?.allObjects as? [Issue] ?? []
         return result.filter { $0.completed == false }
     }
+    
     var tagID: UUID {
         id ?? UUID()
     }
+    
     // might need to  use getters and setters later
     var tagName: String {
         name ?? ""
     }
+    
     static var example: Tag {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext

@@ -10,6 +10,7 @@ import SwiftUI
 struct IssueView: View {
     @ObservedObject var issue: Issue
     @EnvironmentObject var dataController: DataController
+    
     var body: some View {
         Form {
             Section {
@@ -28,6 +29,7 @@ struct IssueView: View {
                 }
                 TagsMenuView(issue: issue)
             }
+            
             // This description textfield
             Section {
                 VStack(alignment: .leading) {

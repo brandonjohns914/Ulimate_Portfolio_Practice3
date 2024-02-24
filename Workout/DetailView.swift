@@ -18,7 +18,7 @@ struct DetailView: View {
             }
         }
         .navigationTitle("Details")
-        // inline is according to apples design guidelines 
+        // inline is according to apples design guidelines
         .navigationBarTitleDisplayMode(.inline)
     }
 }

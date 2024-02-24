@@ -12,6 +12,7 @@ struct UserFilterRow: View {
     // takes in a filter and returns nothing
     var rename: (Filter) -> Void
     var delete: (Filter) -> Void
+    
     var body: some View {
         NavigationLink(value: filter) {
             Label(filter.name, systemImage: filter.icon)

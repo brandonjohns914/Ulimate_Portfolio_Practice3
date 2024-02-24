@@ -10,6 +10,7 @@ import SwiftUI
 struct TagsMenuView: View {
     @ObservedObject var issue: Issue
     @EnvironmentObject var dataController: DataController
+    
     var body: some View {
         Menu {
             // show selected tags first

@@ -12,9 +12,11 @@ enum SortType: String {
     case dateModified = "modificationDate"
     case titleOrder = "title"
 }
+
 enum Status {
     case all, open, closed
 }
+
 class DataController: ObservableObject {
     // Loading/Managing/Syncing local data with iCloud
     let container: NSPersistentCloudKitContainer
@@ -29,6 +31,7 @@ class DataController: ObservableObject {
     @Published var sortNewestFirst = true
     @Published var sortByTitle = true
     private var saveTask: Task<Void, Error>?
+    
     var suggestedFilterTokens: [Tag] {
         let trimmedFilterText = String(filterText).trimmingCharacters(in: .whitespaces)
         let request = Tag.fetchRequest()
@@ -37,11 +40,13 @@ class DataController: ObservableObject {
         }
         return (try? container.viewContext.fetch(request).sorted()) ?? []
     }
+    
         static var preview: DataController = {
         let dataController = DataController(inMemory: true)
         dataController.createSampleData()
         return dataController
     }()
+    
     // When inMemory = true  data is created on disk
     // When inMemory = false data is stored
     init(inMemory: Bool = false) {
@@ -66,9 +71,11 @@ class DataController: ObservableObject {
             }
         }
     }
+    
     func remoteStoreChanged(_ notification: Notification) {
         objectWillChange.send()
     }
+    
     func createSampleData() {
         let viewContext = container.viewContext
         for tagCounter in 1...5 {
@@ -88,6 +95,7 @@ class DataController: ObservableObject {
         }
         try? viewContext.save()
     }
+    
     /// Only saves Data to persistent storage if values have changed
     func save() {
         saveTask?.cancel()
@@ -95,6 +103,7 @@ class DataController: ObservableObject {
             try? container.viewContext.save()
         }
     }
+    
     func queueSave() {
         saveTask?.cancel()
         print("queuing save")
@@ -104,6 +113,7 @@ class DataController: ObservableObject {
             print("saved")
         }
     }
+    
     /// Deletes Tags/Issues
     /// Announces to Swift Views that they need to update their views
     func delete (_ object: NSManagedObject) {
@@ -111,6 +121,7 @@ class DataController: ObservableObject {
         container.viewContext.delete(object)
         save()
     }
+    
     /// Batch Delete used with createSampleData to delete all Issues and Tags
     private func delete (_ fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -120,6 +131,7 @@ class DataController: ObservableObject {
             NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [container.viewContext])
         }
     }
+    
     func deleteAll() {
         let request1: NSFetchRequest<NSFetchRequestResult> = Tag.fetchRequest()
         delete(request1)
@@ -127,6 +139,7 @@ class DataController: ObservableObject {
         delete(request2)
         save()
     }
+    
     func missingTags(from issue: Issue) -> [Tag] {
         let request = Tag.fetchRequest()
         let allTags = (try? container.viewContext.fetch(request)) ?? []
@@ -135,6 +148,7 @@ class DataController: ObservableObject {
         let difference = allTagsSet.symmetricDifference(issue.issueTags)
         return difference.sorted()
     }
+    
     func issuesForSelectedFilter() -> [Issue] {
         let filter = selectedFilter ?? .all
         var predicates = [NSPredicate]()
@@ -188,6 +202,7 @@ class DataController: ObservableObject {
         let allIssues = (try? container.viewContext.fetch(request)) ?? []
         return allIssues
     }
+    
     func newIssue() {
         let issue = Issue(context: container.viewContext)
         issue.title = NSLocalizedString("New Issue", comment: "Create a new Issue")
@@ -199,15 +214,18 @@ class DataController: ObservableObject {
         save()
         selectedIssue = issue
     }
+    
     func newTag() {
         let tag = Tag(context: container.viewContext)
         tag.id = UUID()
         tag.name = NSLocalizedString("New Tag", comment: "Create a new Tag")
         save()
     }
+    
     func count<T> (for fetchRequest: NSFetchRequest<T>) -> Int {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
+    
     func hasEarned(award: Award) -> Bool {
         switch award.criterion {
         case "issues":
