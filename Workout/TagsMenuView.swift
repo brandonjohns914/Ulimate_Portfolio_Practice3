@@ -17,13 +17,12 @@ struct TagsMenuView: View {
                 Button {
                     issue.removeFromTags(tag)
                 } label: {
-                    //checkmark does not work in macos
+                    // checkmark does not work in macos
                     Label(tag.tagName, systemImage: "checkmark")
                 }
             }
             // show unselected tags
             let otherTags = dataController.missingTags(from: issue)
-            
             if otherTags.isEmpty == false {
                 Divider()
                 Section("Add Tags") {

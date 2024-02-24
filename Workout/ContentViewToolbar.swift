@@ -16,29 +16,24 @@ struct ContentViewToolbar: View {
                 dataController.filterEnabled.toggle()
             }
             Divider()
-            
             Menu("Sort By") {
                 Picker("Sort By", selection: $dataController.sortType) {
                     Text("Date Created").tag(SortType.dateCreated)
                     Text("Date Modified").tag(SortType.dateModified)
                     Text("Title").tag(SortType.titleOrder)
                 }
-                
                 Divider()
-                
                 Picker("Sort Order", selection: $dataController.sortNewestFirst) {
                     Text("Newest to Oldest").tag(true)
                     Text("Oldest to Newest").tag(false)
                 }
             }
-            
             Picker("Status", selection: $dataController.filterStatus) {
                 Text("All").tag(Status.all)
                 Text("Open").tag(Status.open)
                 Text("Closed").tag(Status.closed)
             }
             .disabled(dataController.filterEnabled == false)
-            
             Picker("Priority", selection: $dataController.filterPriority) {
                 Text("All").tag(-1)
                 Text("Low").tag(0)

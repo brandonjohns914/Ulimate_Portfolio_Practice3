@@ -13,7 +13,6 @@ extension Tag {
         let result = issues?.allObjects as? [Issue] ?? []
         return result.filter { $0.completed == false }
     }
-    
     var tagID: UUID {
         id ?? UUID()
     }
@@ -21,7 +20,6 @@ extension Tag {
     var tagName: String {
         name ?? ""
     }
-    
     static var example: Tag {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext
@@ -33,10 +31,9 @@ extension Tag {
 }
 
 extension Tag: Comparable {
-    public static func <(lhs: Tag, rhs: Tag) -> Bool {
+    public static func < (lhs: Tag, rhs: Tag) -> Bool {
         let left = lhs.tagName.localizedLowercase
         let right = rhs.tagName.localizedLowercase
-        
         if left == right {
             return lhs.tagID.uuidString < rhs.tagID.uuidString
         } else {

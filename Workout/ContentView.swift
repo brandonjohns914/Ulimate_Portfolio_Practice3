@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var dataController: DataController
-    
     var body: some View {
         List(selection: $dataController.selectedIssue) {
             ForEach(dataController.issuesForSelectedFilter()) { issue in
@@ -25,12 +24,11 @@ struct ContentView: View {
             tokens: $dataController.filterTokens,
             suggestedTokens: .constant(dataController.suggestedFilterTokens),
             prompt: "Select a Tag or Write in the Issue Title"
-        ){ tag in
+        ) { tag in
             Text(tag.tagName)
         }
-        .toolbar (content: ContentViewToolbar.init)
+        .toolbar(content: ContentViewToolbar.init)
     }
-    
     func delete(_ offsets: IndexSet) {
         let issues = dataController.issuesForSelectedFilter()
         for offset in offsets {
